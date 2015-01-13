@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="Automator.UsConnection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style BasedOn="{StaticResource Label_left}" TargetType="Label">
+            <Setter Property="Width" Value="200"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+        <StackPanel>
+            <ToolBar>
+                <Button Content="Save" Click="Button_Click_1"/>
+            </ToolBar>
+            <WrapPanel HorizontalAlignment="Left" Margin="10" Visibility="Collapsed">
+                <Label Content="Template file" FontWeight="Bold"></Label>
+                <TextBox x:Name="tboxTemplate_birth" Width="200" Text=""/>
+                <TextBox x:Name="tboxTemplate_death" Width="200" Text=""/>
+            </WrapPanel>
+            <WrapPanel>
+                <Line></Line>
+                <Label Content="Date Format(Doc)"></Label>
+                <TextBox Text="" Name="tboxDateFormat"></TextBox>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Current Display Format:"  Margin="35,5,5,5" Name="lbDate" Width="Auto" Background="#FFBDE7FB" BorderBrush="#FF09096E" Foreground="#FF090D63" FontWeight="Bold"></Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label>Date format (Report)</Label>
+                <TextBox Name="txtDateFormatRep"></TextBox>
+            </WrapPanel>
+            <WrapPanel>
+                <Label>Date format (Birth Report)</Label>
+                <TextBox Name="txtDateFormatBirth" ></TextBox>
+            </WrapPanel>
+            <WrapPanel Visibility="Collapsed">
+                <Label>Date format (Screen)</Label>
+                <TextBox Name="txtDateFormatSrn" ></TextBox>
+            </WrapPanel>
+            <Separator Width="Auto" BorderThickness="10" BorderBrush="LightBlue"></Separator>
+            <WrapPanel>
+                <Label>Local area/body</Label>
+                <TextBox Name="txtLocal"></TextBox>
+            </WrapPanel>
+            <WrapPanel>
+                <Label>Tahsil/Block</Label>
+                <TextBox Name="txtTahsil"></TextBox>
+            </WrapPanel>
+            <WrapPanel>
+                <Label>District</Label>
+                <TextBox Name="txtDistrict"></TextBox>
+            </WrapPanel>
+
+
+        </StackPanel>
+        <StackPanel Margin="50,0,0,0" HorizontalAlignment="Right">
+            <TextBlock Style="{StaticResource heading}"  HorizontalAlignment="Left">Database file location</TextBlock>
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" Style="{StaticResource assist}">This application is designed to connect to database located at "C:\Automator\DB_Automator.mdf".
+            </TextBlock>
+            <TextBlock Style="{StaticResource heading}"  HorizontalAlignment="Left">Template/Form Layout</TextBlock>
+            <TextBlock Style="{StaticResource assist}"  TextWrapping="Wrap" HorizontalAlignment="Left">
+            This application uses Word documents/templates for the design of form layout, located at 
+            "C:\Automator\Certificate_Birth.docx" and "C:\Automator\Certificate_Birth.docx". 
+            Future changes in layout can be done on these files. 
+            <TextBlock FontWeight="Black" Foreground="#FFF02323" Style="{StaticResource assist}">Care must be taken to not temper the logical controls included in the files</TextBlock>
+            <TextBlock FontWeight="Black" Foreground="#FFF02323" Style="{StaticResource assist}"> Missing or mismatched files and folder mentioned above may leave the applicaton non-functional</TextBlock>
+            <TextBlock FontWeight="Bold" Foreground="#FFF02323" Style="{StaticResource assist}">Backup this folder "C:\Automator" in a safe location, 
+                if data lose in this location/drive is formidable.</TextBlock>
+        </TextBlock>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

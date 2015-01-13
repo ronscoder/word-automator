@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Automator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="dateFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dd/MM/yyyy</Value>
+    </Setting>
+    <Setting Name="TemplateFile_death" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Automator\Certificate_Death.docx</Value>
+    </Setting>
+    <Setting Name="TemplateFile_birth" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Automator\Certificate_Birth.docx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

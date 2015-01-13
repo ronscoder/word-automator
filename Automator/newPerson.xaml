@@ -1,0 +1,147 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Automator" x:Class="Automator.newPerson" 
+             mc:Ignorable="d" Height="Auto" Width="Auto"
+             Loaded="UserControl_Loaded" ScrollViewer.CanContentScroll="True" SizeChanged="UserControl_SizeChanged">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="personViewSource" d:DesignSource="{d:DesignInstance {x:Type local:person}, CreateList=True}"/>
+        <Style BasedOn="{StaticResource Label_left_field}" TargetType="{x:Type Label}"></Style>
+    </UserControl.Resources>
+    <Border >
+        <StackPanel>
+            <Label Style="{StaticResource Title}">Issue new certificate</Label>
+            <ToolBar>
+                <Button Content="New" Width="70"  Click="Button_Click" />
+                <Separator/>
+                <Button Name="btnSave" Content ="Save" Width="80" Click="Button_Click_1" ClickMode="Press" Margin="1,1,1,0" VerticalAlignment="Top" />
+                <Separator/>
+                <Button Name = "btnPrint" Content="Print" Click="Button_Click_2" Width="85"/>
+            </ToolBar>
+            <StackPanel Name="Grid1">
+                <StackPanel.Resources>
+                </StackPanel.Resources>
+                <WrapPanel>
+                    <Label Content="" Name="msg_new" Background="#FF50B928" OpacityMask="#FF44C51D"></Label>
+                </WrapPanel>
+                <WrapPanel Height="30">
+                    <Label Content="Category"/>
+                    <ComboBox Name="cbCateogry" Width="249">
+                        <ComboBoxItem Content="Birth" Name="cbItemBirth" IsSelected="True" Selected="ComboBoxItem_Selected_1">
+                        </ComboBoxItem>
+                        <ComboBoxItem Content="Death" Name="cbItemDeath" Selected="ComboBoxItem_Selected">
+                        </ComboBoxItem>
+                    </ComboBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Local area:"  />
+                    <TextBox x:Name="local_areaTextBox" />
+                </WrapPanel>
+
+                <WrapPanel>
+                    <Label Content="Tahsil Block:" />
+                    <TextBox x:Name="tahsil_BlockTextBox" />
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="District:" />
+                    <TextBox x:Name="districtTextBox" />
+                </WrapPanel>
+                <WrapPanel VerticalAlignment="Top">
+                    <Label Content="Name:" VerticalAlignment="Bottom"></Label>
+                    <WrapPanel Orientation="Vertical" Width="150" >
+                        <Label Content="First name:"   HorizontalContentAlignment="Center" Width="150" />
+                        <TextBox x:Name="first_nameTextBox" Width="153" HorizontalAlignment="Left" />
+                    </WrapPanel>
+                    <WrapPanel Orientation="Vertical" Width="150" >
+                        <Label Content="Middle name:" HorizontalContentAlignment="Center" Width="150" />
+                        <TextBox x:Name="middle_nameTextBox" HorizontalAlignment="Left" />
+                    </WrapPanel>
+
+                    <WrapPanel Orientation="Vertical" Width="150" >
+                        <Label Content="Last name:" HorizontalContentAlignment="Center" Width="150" />
+                        <TextBox x:Name="last_nameTextBox" HorizontalAlignment="Left" />
+                    </WrapPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Name="lbDateBirth" Content="Date of birth:"/>
+                    <DatePicker x:Name="date_of_birthDatePicker" />
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Name="lbPlaceBirth" Content="Place of birth:" />
+                    <TextBox x:Name="place_of_birthTextBox" Width="394" />
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Sex:" />
+                    <ComboBox Name="SexSel" DropDownClosed="SexSel_DropDownClosed" Width="249" >
+                        <ComboBoxItem Content="Male"/>
+                        <ComboBoxItem Content="Female"/>
+                    </ComboBox>
+                    <TextBox x:Name="sexTextBox" VerticalAlignment="Center" IsReadOnly="True" Visibility="Hidden">
+                    </TextBox>
+
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Name of mother:" />
+                    <TextBox x:Name="name_of_motherTextBox"  />
+                </WrapPanel>
+                <!--Father/Husband //Control by radio button-->
+                <WrapPanel  Name="wpRadio" Visibility="Collapsed">
+                    <Label></Label>
+                    <RadioButton  Margin="3" Name="Fa" GroupName="Fath/Hus" Content="Name of Father" IsChecked="True" Checked="RadioButton_Checked"/>
+                    <RadioButton  Margin="3" Name="Hu" GroupName="Fath/Hus" Content="Name of husband" IsChecked="False"  Checked="RadioButton_Checked"></RadioButton>
+                </WrapPanel>
+                <WrapPanel  Name="wpFather">
+                    <Label   Content="Name of father:" />
+                    <TextBox x:Name="name_of_fatherTextBox" />
+                </WrapPanel>
+                <WrapPanel  Name="wpHusband" Visibility="Collapsed">
+                    <Label Content="Name of Husband" />
+                    <TextBox x:Name="txtHusband"  />
+                </WrapPanel>
+                <WrapPanel>
+                    <!--TODO Address of the deceased at the time of Death: -->
+                    <Label  Name="lbAdd" Content="Address of parents at the time of birth of the child:" />
+                    <TextBox x:Name="address_of_parents__birth_TextBox" AcceptsReturn="True" Width="394" />
+                </WrapPanel>
+
+                <WrapPanel>
+                    <Label Name="lbPermAdd" Content="Permanent address of parents:" />
+                    <TextBox x:Name="permanent_address_of_parentsTextBox" AcceptsReturn="True" Width="394"/>
+                    <CheckBox Content="Same as above" Checked="CheckBox_Checked"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <Label Content="Registration number:" />
+                    <TextBox x:Name="registration_numberTextBox" LostFocus="registration_numberTextBox_LostFocus" />
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Remarks:"/>
+                    <TextBox x:Name="remarksTextBlock" Width="394"  />
+                </WrapPanel>
+
+                <WrapPanel>
+                    <Label Content="Date of registration:" />
+                    <DatePicker x:Name="date_of_registrationDatePicker" />
+                </WrapPanel>
+
+                <WrapPanel>
+                    <Label Content="Date of issue:" />
+                    <DatePicker x:Name="date_of_issueDatePicker" />
+                </WrapPanel>
+
+                <!-- 
+                <WrapPanel>
+                    <Label Content="Issuing authority:" />
+                    <TextBox x:Name="issuing_authorityTextBox"  Text="{Binding Issuing_authority, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" IsEnabled="False"/>
+                </WrapPanel>
+
+                <Label Content="Person id:" Grid.Column="0" HorizontalAlignment="Left" Margin="102,30,0,52" Grid.Row="16" VerticalAlignment="Center" Height="26" Width="62"/>
+                <TextBox x:Name="person_idTextBox" HorizontalAlignment="Left" Height="24" Margin="4,32,0,52" Grid.Row="16" Text="{Binding Person_id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="161" Grid.Column="1" Focusable="False" IsEnabled="False"></TextBox>
+            -->
+            </StackPanel>
+
+        </StackPanel>
+    </Border>
+</UserControl>

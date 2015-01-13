@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_AutomatorModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="persons">
+          <Key>
+            <PropertyRef Name="Person id" />
+            <PropertyRef Name="Category" />
+          </Key>
+          <Property Name="Person id" Type="int" Nullable="false" />
+          <Property Name="Category" Type="nchar" MaxLength="5" Nullable="false" />
+          <Property Name="First name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Middle name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Last name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Date of birth/death" Type="datetime" />
+          <Property Name="Local area" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tahsil/Block" Type="nvarchar" MaxLength="40" />
+          <Property Name="District" Type="nvarchar" MaxLength="30" />
+          <Property Name="Sex" Type="nchar" MaxLength="10" />
+          <Property Name="Place of birth/death" Type="nvarchar" MaxLength="40" />
+          <Property Name="Name of mother" Type="nvarchar" MaxLength="40" />
+          <Property Name="Name of father" Type="nvarchar" MaxLength="40" />
+          <Property Name="Name of Husband" Type="nvarchar" MaxLength="40" />
+          <Property Name="Address of parents(birth)/death" Type="nvarchar" MaxLength="40" />
+          <Property Name="Permanent address of parents/deceased" Type="nvarchar" MaxLength="40" />
+          <Property Name="Registration number" Type="nchar" MaxLength="10" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date of issue" Type="datetime" />
+          <Property Name="Date of registration" Type="datetime" />
+          <Property Name="Issuing authority" Type="nvarchar" MaxLength="50" />
+          <Property Name="Creation date" Type="datetime" />
+          <Property Name="Created by" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="DB_AutomatorModel1StoreContainer">
+          <EntitySet Name="persons" EntityType="Self.persons" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_AutomatorModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="person">
+          <Key>
+            <PropertyRef Name="Person_id" />
+            <PropertyRef Name="Category" />
+          </Key>
+          <Property Name="Person_id" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="First_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Middle_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Last_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Date_of_birth_death" Type="DateTime" Precision="3" />
+          <Property Name="Local_area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tahsil_Block" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Place_of_birth_death" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Name_of_mother" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Name_of_father" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Name_of_Husband" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Address_of_parents_birth__death" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Permanent_address_of_parents_deceased" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Registration_number" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date_of_issue" Type="DateTime" Precision="3" />
+          <Property Name="Date_of_registration" Type="DateTime" Precision="3" />
+          <Property Name="Issuing_authority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Creation_date" Type="DateTime" Precision="3" />
+          <Property Name="Created_by" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DB_AutomatorEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="persons" EntityType="Self.person" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_AutomatorModel1StoreContainer" CdmEntityContainer="DB_AutomatorEntities1">
+          <EntitySetMapping Name="persons">
+            <EntityTypeMapping TypeName="DB_AutomatorModel1.person">
+              <MappingFragment StoreEntitySet="persons">
+                <ScalarProperty Name="Person_id" ColumnName="Person id" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="First_name" ColumnName="First name" />
+                <ScalarProperty Name="Middle_name" ColumnName="Middle name" />
+                <ScalarProperty Name="Last_name" ColumnName="Last name" />
+                <ScalarProperty Name="Date_of_birth_death" ColumnName="Date of birth/death" />
+                <ScalarProperty Name="Local_area" ColumnName="Local area" />
+                <ScalarProperty Name="Tahsil_Block" ColumnName="Tahsil/Block" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Place_of_birth_death" ColumnName="Place of birth/death" />
+                <ScalarProperty Name="Name_of_mother" ColumnName="Name of mother" />
+                <ScalarProperty Name="Name_of_father" ColumnName="Name of father" />
+                <ScalarProperty Name="Name_of_Husband" ColumnName="Name of Husband" />
+                <ScalarProperty Name="Address_of_parents_birth__death" ColumnName="Address of parents(birth)/death" />
+                <ScalarProperty Name="Permanent_address_of_parents_deceased" ColumnName="Permanent address of parents/deceased" />
+                <ScalarProperty Name="Registration_number" ColumnName="Registration number" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Date_of_issue" ColumnName="Date of issue" />
+                <ScalarProperty Name="Date_of_registration" ColumnName="Date of registration" />
+                <ScalarProperty Name="Issuing_authority" ColumnName="Issuing authority" />
+                <ScalarProperty Name="Creation_date" ColumnName="Creation date" />
+                <ScalarProperty Name="Created_by" ColumnName="Created by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

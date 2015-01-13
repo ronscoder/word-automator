@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Automator.AddUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+        <Expander Header="Create User">
+            <StackPanel>
+                <WrapPanel>
+                    <Label>Username</Label>
+                    <TextBox Name="txtNewUsername" TextChanged="txtNewUsername_TextChanged" MaxLength="10"></TextBox>
+                    <TextBlock Style="{StaticResource assist}">Maximum 10 characters</TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label>Password</Label>
+                    <TextBox Name="txtNewPassword" MaxLength="15"></TextBox>
+                    <TextBlock Style="{StaticResource assist}">Maximum 15 characters</TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label>Display Name</Label>
+                    <TextBox Name="txtNewDisplayName" MaxLength="50"></TextBox>
+                    <TextBlock Style="{StaticResource assist}">Not more than 10 characters</TextBlock>
+                </WrapPanel>
+                <Button Click="ClickCreateUser">Create User</Button>
+            </StackPanel>
+        </Expander>
+        <Expander Header="Change Password">
+            <StackPanel>
+                <WrapPanel>
+                    <Label>Username</Label>
+                    <TextBox Name="txtUsername"></TextBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label>Old Password</Label>
+                    <PasswordBox Name="txtChangePassword_old"></PasswordBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label>New Password</Label>
+                    <PasswordBox Name="txtChangePassword1" MaxLength="15"></PasswordBox>
+                    <TextBlock Style="{StaticResource assist}">Maximum 10 characters</TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label>Re-enter New Password</Label>
+                    <PasswordBox Name="txtChangePassword2"></PasswordBox>
+                </WrapPanel>                
+                <WrapPanel>
+                    <Label>Display Name (Change if wanted)</Label>
+                    <TextBox Name="txtChangeDisplayName"></TextBox>
+                </WrapPanel>
+                <Button Click="ClickChangeUser">Update</Button>
+            </StackPanel>
+        </Expander>
+        <Expander Header="List users" Expanded="event_users_expand">
+            <DataGrid Name="users" AutoGeneratingColumn="users_AutoGeneratingColumn" ></DataGrid>
+        </Expander>
+    </StackPanel>
+    
+</UserControl>

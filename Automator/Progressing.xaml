@@ -1,0 +1,12 @@
+﻿<Window x:Class="Automator.Progressing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Progressing" Height="300" Width="300">
+    <StackPanel>
+        <Label Name="lblTopic"></Label>
+        <ProgressBar Name="pbStat"  Minimum="0" Maximum="1" IsIndeterminate="True"></ProgressBar>
+        <Label Name="lblTask"></Label>
+    </StackPanel>
+    
+    
+</Window>
